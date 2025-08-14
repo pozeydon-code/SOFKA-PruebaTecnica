@@ -740,11 +740,11 @@
 		},
 		{
 			"key": "base_url_Account",
-			"value": "http://localhost:5200/api"
+			"value": "http://localhost:3001/api"
 		},
 		{
 			"key": "base_url_Identity",
-			"value": "http://localhost:5201/api",
+			"value": "http://localhost:3002/api",
 			"type": "string"
 		}
 	]
