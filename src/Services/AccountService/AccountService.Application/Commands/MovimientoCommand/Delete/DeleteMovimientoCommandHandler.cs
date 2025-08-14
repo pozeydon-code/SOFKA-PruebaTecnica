@@ -6,10 +6,10 @@ namespace AccountService.Application.Commands.MovimientoCommand.Delete;
 
 internal sealed class DeleteMovimientoCommandHandler : IRequestHandler<DeleteMovimientoCommand, ErrorOr<Unit>>
 {
-    private readonly ICuentaRepository _repo;
+    private readonly IMovimientoRepository _repo;
     private readonly IUnitOfWork _unitOfWork;
 
-    public DeleteMovimientoCommandHandler(ICuentaRepository repo, IUnitOfWork unitOfWork)
+    public DeleteMovimientoCommandHandler(IMovimientoRepository repo, IUnitOfWork unitOfWork)
     {
         _repo = repo ?? throw new ArgumentNullException(nameof(repo));
         _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
@@ -17,8 +17,8 @@ internal sealed class DeleteMovimientoCommandHandler : IRequestHandler<DeleteMov
 
     public async Task<ErrorOr<Unit>> Handle(DeleteMovimientoCommand request, CancellationToken ct)
     {
-        if (await _repo.GetByIdAsync(request.Id) is not Cuenta cuenta)
-            return Errors.Cuenta.NotFound;
+        if (await _repo.GetByIdAsync(request.Id) is not Movimiento movimiento)
+            return Errors.Movimiento.NotFound;
 
         await _repo.DeleteAsync(request.Id);
         await _unitOfWork.SaveChangesAsync(ct);

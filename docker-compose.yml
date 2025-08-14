@@ -24,7 +24,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__SqlServer=Server=sqlserver;Database=banking;User Id=sa;Password=Your_password123;TrustServerCertificate=true
-    ports: ["5201:8080"]
+    ports: ["3002:8080"]
     depends_on:
       sqlserver:
         condition: service_healthy
@@ -38,7 +38,7 @@ services:
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__SqlServer=Server=sqlserver;Database=banking;User Id=sa;Password=Your_password123;TrustServerCertificate=true
       - Services__Identity__BaseUrl=http://identity-api:8080
-    ports: ["5200:8080"]
+    ports: ["3001:8080"]
     depends_on:
       sqlserver:
         condition: service_healthy

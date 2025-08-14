@@ -1,7 +1,9 @@
 -- Al ser un esquema que viene del dominio no de la base al proyecto decidi extraer el esquema que se genera despues de la primera migracion
 -- de esa forma se evitaria alguna referencia no funcional.
 CREATE DATABASE banking;
+GO
 
+USE banking GO
 CREATE TABLE banking.dbo.Clientes (
 	ClienteId int IDENTITY(1,1) NOT NULL,
 	Password nvarchar(MAX) COLLATE Latin1_General_CI_AS NOT NULL,

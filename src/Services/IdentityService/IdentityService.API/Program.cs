@@ -2,6 +2,7 @@ using IdentityService.Application;
 using IdentityService.Infrastructure;
 using IdentityService.API;
 using IdentityService.API.Middlewares;
+using IdentityService.API.Extensions;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     // app.ApplyMigrations();
 }
+
+app.ApplyMigrations();
 
 app.UseExceptionHandler("/error");
 

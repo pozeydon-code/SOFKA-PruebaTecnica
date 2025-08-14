@@ -25,7 +25,7 @@ namespace AccountService.API.Controllers
             );
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateMovimientoCommand command)
         {
             if (command.NumeroCuenta != id)
